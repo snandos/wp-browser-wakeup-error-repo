@@ -1,0 +1,25 @@
+# Unit suite configuration
+#
+# Run integration and "WordPress unit" tests.
+
+actor: UnitTester
+modules:
+    enabled: 
+      - Asserts
+      - \Helper\Unit
+      - lucatume\WPBrowser\Module\WPLoader:
+          wpRootFolder: /var/www/html/wp/
+          pluginsFolder: /var/www/html/wp-content/plugins/
+          dbName: "%WORDPRESS_DB_NAME%"
+          dbHost: "%WORDPRESS_DB_HOST%"
+          dbPassword: "%WORDPRESS_DB_PASSWORD%"
+          dbUser: "%WORDPRESS_DB_USER%"
+          tablePrefix: "%TEST_TABLE_PREFIX%"
+          domain: "%WORDPRESS_DOMAIN%"
+          adminEmail: "admin@%WORDPRESS_DOMAIN%"
+          title: "Integration Tests"
+          isolatedInstall: false
+          plugins:
+            - woocommerce/woocommerce.php
+          theme: "demo-theme" 
+

@@ -1,0 +1,25 @@
+actor: Tester
+paths:
+  tests: tests
+  log: tests/output
+  data: tests/data
+  support: tests/support
+  envs: tests/envs
+  output: tests/output
+
+bootstrap: _bootstrap.php
+
+  
+params:
+  - tests/.env
+
+settings:
+#  error_level: E_ERROR
+
+
+extensions:
+    commands:
+        - "lucatume\\WPBrowser\\Command\\RunOriginal"
+        - "lucatume\\WPBrowser\\Command\\RunAll"
+        - "lucatume\\WPBrowser\\Command\\GenerateWPUnit"
+        - "lucatume\\WPBrowser\\Command\\ChromedriverUpdate"
